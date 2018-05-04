@@ -7,6 +7,7 @@ public class DialogueManager : MonoBehaviour
 {
 	public Text nameText;
 	public Text dialogueText;
+    public Image CharacterImage;
 
 	public Animator animator;
 
@@ -21,6 +22,7 @@ public class DialogueManager : MonoBehaviour
 	{
 		animator.SetBool ("isOpen", true);
 		nameText.text = dialogue.name;
+        CharacterImage.sprite = dialogue.characterSprite;
 
 		sentences.Clear ();
 
