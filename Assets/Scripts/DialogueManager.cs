@@ -11,15 +11,29 @@ public class DialogueManager : MonoBehaviour
 
 	public Animator animator;
 
+    private GameObject player;
+
 	private Queue<string> sentences;
 
 	void Start ()
 	{
 		sentences = new Queue<string> ();
+        SetPlayer();
 	}
+
+    void SetPlayer()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
 	public void StartDialogue (Dialogue dialogue)
 	{
+        if(!player)
+        {
+            SetPlayer();
+        }
+        player.GetComponent<Player_Move_Prot>().canMove = false;
+
 		animator.SetBool ("isOpen", true);
 		nameText.text = dialogue.name;
         CharacterImage.sprite = dialogue.characterSprite;
@@ -57,5 +71,9 @@ public class DialogueManager : MonoBehaviour
 	void EndDialogue ()
 	{
 		animator.SetBool ("isOpen", false);
+        if(player)
+        {
+            player.GetComponent<Player_Move_Prot>().canMove = true;
+        }
 	}
 }
