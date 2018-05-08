@@ -8,22 +8,27 @@ public class QuizManager : MonoBehaviour
 	public Animator animator;
 	GameObject player;
 
-	// Use this for initialization
 	void Start ()
 	{
-		player = GameObject.FindGameObjectWithTag ("Player");
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		
+        GetPlayer();
 	}
 
 	public void ToggleQuiz ()
 	{
-		bool isOpen = animator.GetBool ("isOpen");
+        bool isOpen = animator.GetBool ("isOpen");
+        isOpen = !isOpen;
+
+		animator.SetBool ("isOpen", isOpen);
+
+        if (!player)
+        {
+            GetPlayer();
+        }
 		player.GetComponent<Player_Move_Prot> ().canMove = !isOpen;
-		animator.SetBool ("isOpen", !isOpen);
 	}
+
+    void GetPlayer()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 }
