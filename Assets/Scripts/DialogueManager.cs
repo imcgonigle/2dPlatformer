@@ -33,6 +33,7 @@ public class DialogueManager : MonoBehaviour
             SetPlayer();
         }
         player.GetComponent<Player_Move_Prot>().canMove = false;
+        player.GetComponent<Animator>().SetBool("isRunning", false);
 
 		animator.SetBool ("isOpen", true);
 		nameText.text = dialogue.name;
