@@ -1491,7 +1491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Diamond
-    characterSprite: {fileID: 21300000, guid: 882dbc042f4444dcbaaa3b8107003379, type: 3}
+    characterSprite: {fileID: 21300000, guid: 17ec054a9b2507c4486b3a398ec28e3b, type: 3}
     sentences:
     - Hello my friend...
     - How do you do? My name is Diamond...
