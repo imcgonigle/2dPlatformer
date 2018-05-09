@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-
+    public bool triggerOnEnter = false;
 	public Dialogue dialogue;
+
     private bool triggered = false;
 
 	public void TriggerDialogue ()
@@ -16,4 +17,10 @@ public class DialogueTrigger : MonoBehaviour
 		    FindObjectOfType<DialogueManager> ().StartDialogue (dialogue);
         }
 	}
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag == "Player")
+            TriggerDialogue();
+    }
 }

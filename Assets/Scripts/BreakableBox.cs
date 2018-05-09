@@ -18,11 +18,6 @@ public class BreakableBox : MonoBehaviour
 
 	void OnDestroy ()
 	{
-        GameObject diamond = GameObject.Find("Diamond");
-        if (diamond)
-        {
-		    diamond.GetComponent<DialogueTrigger> ().TriggerDialogue ();
-        }
 		if (breakableBoxAudio) {
 			breakableBoxAudio.Play ();
 		}
