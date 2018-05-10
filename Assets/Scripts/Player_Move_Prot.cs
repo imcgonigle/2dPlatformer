@@ -77,7 +77,7 @@ public class Player_Move_Prot : MonoBehaviour
 		 * a breakable box. If so, destroy the box.
 		 **/
 		RaycastHit2D rayUp = Physics2D.Raycast (transform.position, Vector2.up);
-		if (rayUp != null && rayUp.collider != null && rayUp.distance < distanceToBottomOfPlayer) {
+		if (rayUp && rayUp.collider != null && rayUp.distance < distanceToBottomOfPlayer) {
 			if (rayUp.collider.tag == "breakable") {
 				Destroy (rayUp.collider.gameObject);
 			}
@@ -88,7 +88,7 @@ public class Player_Move_Prot : MonoBehaviour
 		 * enemy. If so, Destroy the emeny.
 		 * */
 		RaycastHit2D rayDown = Physics2D.Raycast (transform.position, Vector2.down);
-		if (rayDown != null && rayDown.collider != null && rayDown.distance < distanceToBottomOfPlayer) {
+		if (rayDown && rayDown.collider != null && rayDown.distance < distanceToBottomOfPlayer) {
 			if (rayDown.collider.tag == "enemy") {
 				GameObject.Find ("BreakableBoxAudio").GetComponent<AudioSource> ().Play ();
 				GetComponent<Rigidbody2D> ().AddForce (Vector2.up * 1000);
